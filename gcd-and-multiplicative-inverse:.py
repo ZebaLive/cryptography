@@ -11,7 +11,7 @@ def gcd(x, y):
     return gcd
 
 def modInverse(a, m) :
-    a = a % m;
+    a = a % m
     for x in range(1, m) :
         if ((a * x) % m == 1) :
             return x
