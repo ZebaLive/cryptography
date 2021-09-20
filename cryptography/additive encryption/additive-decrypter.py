@@ -23,5 +23,5 @@ text = input("enter tencrypted text: ")
 key = input("enter key value: ")
 print("decrypting...")
 print("plain text:", additive_decryption(str(text), int(key)))
-input("Press anything to exit...")
+input("press any key to exit...")
 
