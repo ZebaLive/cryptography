@@ -30,4 +30,4 @@ num3 = input("Input number: ")
 modulo = input("Input modulo: ")
 print("Modulo inverse:", modInverse(int(num3), int(modulo)))
 
-input("Press anything to continue...")
+input("Press anything to exit...")
