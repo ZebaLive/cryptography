@@ -14,25 +14,12 @@ def additive_encryption(text, shift):
         encryption += new_c
     return encryption
 
-
-def additive_decryption(text, shift):
-    text = text.upper()
-    p_text = ""
-    for c in text:
-        # find the position in 0-25
-        c_u = ord(c)
-        c_i = ord(c) - ord("A")
-        # perform the negative shift
-        new_i = (c_i - shift) % 26
-        # convert to new character
-        new_u = new_i + ord("A")
-        new_c = chr(new_u)
-        # append to plain string
-        p_text += new_c
-    return p_text
-
-
-eq = additive_encryption("HelloWorld", 4)
-print(eq)
-pt = additive_decryption(eq, 4)
-print(pt)
+print("__Additive Cipher__")
+print(" ")
+print("__encryption__")
+print(" ")
+text = input("enter text to encrypt: ")
+key = input("enter key value: ")
+print("encrypting...")
+print("encrypted text:", additive_encryption(str(text), int(key)))
+input("Press anything to exit...")
