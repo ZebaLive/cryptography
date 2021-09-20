@@ -22,7 +22,7 @@ num1 = input("Input number one: ")
 num2 = input("Input number two: ")
 print("GCD:", gcd(int(num1), int(num2)))
 
-input("Press anything to continue...")
+input("press any key to continue...")
 print(" ")
 print("__ModInverse__")
 
@@ -30,4 +30,4 @@ num3 = input("Input number: ")
 modulo = input("Input modulo: ")
 print("Modulo inverse:", modInverse(int(num3), int(modulo)))
 
-input("Press anything to exit...")
+input("press any key to exit...")
