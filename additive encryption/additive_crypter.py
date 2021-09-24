@@ -1,8 +1,9 @@
 #Aditive crypter class
 class AdditiveCrypter:
     #encryption function
-    def additive_encryption(text, shift):
+    def encryption(self, text, shift):
         text = text.upper()
+        shift = int(shift)
         encryption = ""
         for c in text:
             # find the position in 0-25
@@ -17,8 +18,9 @@ class AdditiveCrypter:
             encryption += new_c
         return encryption
     #decryption function
-    def additive_decryption(text, shift):
+    def decryption(self, text, shift):
         text = text.upper()
+        shift = int(shift)
         p_text = ""
         for c in text:
             # find the position in 0-25
