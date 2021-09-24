@@ -45,7 +45,3 @@ class MultiplicativeCrypter:
             # append to plain string
             p_text += new_c
         return p_text
-
-
-inv = MultiplicativeCrypter()
-print(inv.decryption("VMHHQ", "3"))
