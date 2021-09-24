@@ -1,3 +1,4 @@
+#greater common diviser functio
 def gcd(x, y):
     gcd = 1
 
@@ -10,6 +11,7 @@ def gcd(x, y):
             break
     return gcd
 
+#modulo inverse function
 def modInverse(a, m) :
     a = a % m
     for x in range(1, m) :
@@ -17,6 +19,7 @@ def modInverse(a, m) :
             return x
     return 1
 
+#interface
 print("__GCD__")
 num1 = input("Input number one: ")
 num2 = input("Input number two: ")
