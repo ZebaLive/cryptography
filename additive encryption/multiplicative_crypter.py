@@ -14,7 +14,7 @@ class MultiplicativeCrypter:
         text = text.upper()
         key = int(key)
         if math.gcd(key, 26) != 1:
-            return "ERROR: uncompatable key!" 
+            return "ERROR: key is invalid!" 
         encryption = ""
         for c in text:
             # find the position in 0-25
@@ -31,6 +31,9 @@ class MultiplicativeCrypter:
 
     def decryption(self, text, key):
         text = text.upper()
+        key = int(key)
+        if math.gcd(key, 26) != 1:
+            return "ERROR: key is invalid!" 
         key = self.modInverse(int(key), 26)
         p_text = ""
         for c in text:
