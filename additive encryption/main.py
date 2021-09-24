@@ -1,8 +1,10 @@
+#main application interface
 import additive_crypter
 
 print("Additive encryption")
 print("-------------------")
 cypher = additive_crypter.AdditiveCrypter()
+
 print("Please select one")
 i = 0
 while i < 3:
