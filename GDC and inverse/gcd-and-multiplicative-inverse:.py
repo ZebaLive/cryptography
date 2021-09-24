@@ -1,4 +1,4 @@
-#greater common diviser functio
+#greater common diviser function
 def gcd(x, y):
     gcd = 1
 
