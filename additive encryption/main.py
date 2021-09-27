@@ -1,6 +1,6 @@
 #main application interface
-import additive_crypter
-import multiplicative_crypter
+import additive
+import multiplicative
 
 print("Additive encryption")
 print("-------------------")
