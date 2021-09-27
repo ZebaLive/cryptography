@@ -1,16 +1,18 @@
 #main application interface
 import additive
 import multiplicative
+import autokey
 
 print("Additive encryption")
 print("-------------------")
 cypher_additive = additive.AdditiveCrypter()
 cypher_multiplicative = multiplicative.MultiplicativeCrypter()
+cypher_autokey = autokey.AdditiveCrypter()
 
 print("Please select one")
 selector = 0
-while selector < 4:
-    selector = int(input("[1] additive, [2] multiplicative, [3] affine, [4] exit: "))
+while selector < 5:
+    selector = int(input("[1] additive, [2] multiplicative, [3] affine, [4] autokey, [5] exit: "))
 
     #additive encryption
     if selector == 1:
@@ -58,3 +60,18 @@ while selector < 4:
             print("Decrypting text...")
             print("Raw text:")
             print(cypher_multiplicative.decryption(cypher_additive.decryption(text, key1), key2))
+
+    #autokey encryption
+    if selector == 4:
+        if int(input("[1] encryption, [2] decryption: ")) == 1:
+            text = input("Input raw [text]: ")
+            key = input("Input key [number]: ")
+            print("Encrypting text...")
+            print("Encypted text:")
+            print(cypher_autokey.encryption(text, key))
+        else:
+            text = input("Input encrypted [text]: ")
+            key = input("Input key [number]: ")
+            print("Decrypting text...")
+            print("Raw text:")
+            print(cypher_autokey.decryption(text, key))
