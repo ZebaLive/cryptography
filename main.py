@@ -58,4 +58,3 @@ while selector < 4:
             print("Decrypting text...")
             print("Raw text:")
             print(cypher_multiplicative.decryption(cypher_additive.decryption(text, key1), key2))
-    
