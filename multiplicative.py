@@ -1,14 +1,8 @@
 import math
+import inverse
 
 #multiplicative encrypter
 class MultiplicativeCrypter:
-
-    def modInverse(self, a, m) :
-        a = a % m
-        for x in range(1, m) :
-            if ((a * x) % m == 1) :
-                return x
-        return 1
 
     def encryption(self, text, key):
         text = text.upper()
@@ -34,7 +28,7 @@ class MultiplicativeCrypter:
         key = int(key)
         if math.gcd(key, 26) != 1:
             return "ERROR: key is invalid!" 
-        key = self.modInverse(int(key), 26)
+        key = inverse.modInverse(int(key), 26)
         p_text = ""
         for c in text:
             # find the position in 0-25
