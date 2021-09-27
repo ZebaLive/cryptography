@@ -34,4 +34,3 @@ class AdditiveCrypter:
             # append to plain string
             p_text += new_c
         return p_text
-
