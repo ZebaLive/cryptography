@@ -10,7 +10,9 @@ cypher_multiplicative = multiplicative_crypter.MultiplicativeCrypter()
 print("Please select one")
 selector = 0
 while selector < 4:
-    selector = int(input("[1] additive encryption, [2] multiplicative encryption, [3] affine, [4] exit: "))
+    selector = int(input("[1] additive, [2] multiplicative, [3] affine, [4] exit: "))
+
+    #additive encryption
     if selector == 1:
         if int(input("[1] encryption, [2] decryption: ")) == 1:
             text = input("Input raw [text]: ")
@@ -25,6 +27,7 @@ while selector < 4:
             print("Raw text:")
             print(cypher_additive.decryption(text, key))
 
+    #multiplicative encryption
     if selector == 2:
         if int(input("[1] encryption, [2] decryption: ")) == 1:
             text = input("Input raw [text]: ")
@@ -39,6 +42,7 @@ while selector < 4:
             print("Raw text:")
             print(cypher_multiplicative.decryption(text, key))
 
+    #affine encryption
     if selector == 3:
         if int(input("[1] encryption, [2] decryption: ")) == 1:
             text = input("Input raw [text]: ")
