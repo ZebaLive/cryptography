@@ -4,8 +4,8 @@ import multiplicative
 
 print("Additive encryption")
 print("-------------------")
-cypher_additive = additive_crypter.AdditiveCrypter()
-cypher_multiplicative = multiplicative_crypter.MultiplicativeCrypter()
+cypher_additive = additive.AdditiveCrypter()
+cypher_multiplicative = multiplicative.MultiplicativeCrypter()
 
 print("Please select one")
 selector = 0
