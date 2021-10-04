@@ -1,7 +1,5 @@
 #main application interface
-import additive
-import multiplicative
-import autokey
+import additive, multiplicative, autokey, keyed
 
 print("Additive encryption")
 print("-------------------")
@@ -11,6 +9,9 @@ cypher_autokey = autokey.AdditiveCrypter()
 
 print("Please select one")
 selector = 0
+
+
+
 while selector < 5:
     selector = int(input("[1] additive, [2] multiplicative, [3] affine, [4] autokey, [5] exit: "))
 

@@ -1,5 +1,4 @@
-import math
-import inverse
+import math, inverse
 
 #multiplicative encrypter
 class MultiplicativeCrypter:
