@@ -1,12 +1,13 @@
 #main application interface
-import os, additive, multiplicative, autokey, keyed 
+import os, additive, multiplicative, autokey, keyed, affine 
 
 class ui:
     def __init__(self):
         self.cypher = {
             "additive" : additive.AdditiveCrypter(),
             "multiplicative" : multiplicative.MultiplicativeCrypter(),
-            "autokey" : autokey.AdditiveCrypter()
+            "autokey" : autokey.AdditiveCrypter(),
+            "affine" : affine.AffineCrypter()
         }
 
     def main_meniu(self):
@@ -103,7 +104,7 @@ class ui:
         elif selector == "3":
             return
         else:
-            self.additive()
+            self.multiplicative()
             return
         input("Press anything to go back to main meniu...")
         return
@@ -120,109 +121,68 @@ class ui:
         if selector == "1":
             os.system('cls||clear')
             text = input("Input raw text: ")
+            key = {
+                "A" : input("Input first key (number): "),
+                "B" : input("Input second key (number): ")
+            }
+            print("Encrypting text...")
+            print("Encypted text:")
+            print(self.cypher["affine"].encryption(text, key))
+        elif selector == "2":
+            os.system('cls||clear')
+            text = input("Input encrypted text: ")
+            key = {
+                "A" : input("Input first key (number): "),
+                "B" : input("Input second key (number): ")
+            }
+            print("Decrypting text...")
+            print("Raw text:")
+            print(self.cypher["affine"].decryption(text, key))
+        elif selector == "3":
+            return
+        else:
+            self.affine()
+            return
+        input("Press anything to go back to main meniu...")
+        return
+
+    def autokey(self):
+        os.system('cls||clear')
+        print("---Multiplicative Cypher---")
+        print("""
+        1. Encryption
+        2. Decryption
+        3. Exit
+        """)
+        selector = input("Selection: ") 
+        if selector == "1":
+            os.system('cls||clear')
+            text = input("Input raw text: ")
             key = input("Input key (number): ")
             print("Encrypting text...")
             print("Encypted text:")
-            print(self.cypher["multiplicative"].encryption(text, key))
+            print(self.cypher["autokey"].encryption(text, key))
         elif selector == "2":
             os.system('cls||clear')
             text = input("Input encrypted text: ")
             key = input("Input key (number): ")
             print("Decrypting text...")
             print("Raw text:")
-            print(self.cypher["multiplicative"].decryption(text, key))
+            print(self.cypher["autokey"].decryption(text, key))
         elif selector == "3":
             return
         else:
-            self.additive()
+            self.autokey()
             return
         input("Press anything to go back to main meniu...")
         return
 
-    def autokey(self):
-        pass
-
     def keyed(self):
         pass
 
+def main(): 
+    user_interface = ui()   
+    user_interface.main_meniu()
 
-user_interface = ui()   
-
-user_interface.main_meniu()
-"""
-print("Additive encryption")
-print("-------------------")
-cypher_additive = additive.AdditiveCrypter()
-cypher_multiplicative = multiplicative.MultiplicativeCrypter()
-cypher_autokey = autokey.AdditiveCrypter()
-
-print("Please select one")
-selector = 0
-
-
-
-while selector < 5:
-    selector = int(input("[1] additive, [2] multiplicative, [3] affine, [4] autokey, [5] exit: "))
-
-    #additive encryption
-    if selector == 1:
-        if int(input("[1] encryption, [2] decryption: ")) == 1:
-            text = input("Input raw [text]: ")
-            key = input("Input key [number]: ")
-            print("Encrypting text...")
-            print("Encypted text:")
-            print(cypher_additive.encryption(text, key))
-        else:
-            text = input("Input encrypted [text]: ")
-            key = input("Input key [number]: ")
-            print("Decrypting text...")
-            print("Raw text:")
-            print(cypher_additive.decryption(text, key))
-
-    #multiplicative encryption
-    if selector == 2:
-        if int(input("[1] encryption, [2] decryption: ")) == 1:
-            text = input("Input raw [text]: ")
-            key = input("Input key [number]: ")
-            print("Encrypting text...")
-            print("Encypted text:")
-            print(cypher_multiplicative.encryption(text, key))
-        else:
-            text = input("Input encrypted [text]: ")
-            key = input("Input key [number]: ")
-            print("Decrypting text...")
-            print("Raw text:")
-            print(cypher_multiplicative.decryption(text, key))
-
-    #affine encryption
-    if selector == 3:
-        if int(input("[1] encryption, [2] decryption: ")) == 1:
-            text = input("Input raw [text]: ")
-            key1 = input("Input key one [number]: ")
-            key2 = input("Input key two [number]: ")
-            print("Encrypting text...")
-            print("Encypted text:")
-            print(cypher_additive.encryption(cypher_multiplicative.encryption(text, key2), key1))
-        else:
-            text = input("Input encrypted [text]: ")
-            key1 = input("Input key one [number]: ")
-            key2 = input("Input key two [number]: ")
-            print("Decrypting text...")
-            print("Raw text:")
-            print(cypher_multiplicative.decryption(cypher_additive.decryption(text, key1), key2))
-
-    #autokey encryption
-    if selector == 4:
-        if int(input("[1] encryption, [2] decryption: ")) == 1:
-            text = input("Input raw [text]: ")
-            key = input("Input key [number]: ")
-            print("Encrypting text...")
-            print("Encypted text:")
-            print(cypher_autokey.encryption(text, key))
-        else:
-            text = input("Input encrypted [text]: ")
-            key = input("Input key [number]: ")
-            print("Decrypting text...")
-            print("Raw text:")
-            print(cypher_autokey.decryption(text, key))
-"""
+if __name__ == '__main__':
+    main()
