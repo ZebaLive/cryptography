@@ -21,8 +21,7 @@ class KeyedTranspositionCrypter:
         plaintext = [''] * num_of_columns
         col = 0
         row = 0
-
-        #place letters in a column format and later combined or concatenate them together
+   
         for symbol in text:
             plaintext[col] += symbol
             col += 1
@@ -30,3 +29,4 @@ class KeyedTranspositionCrypter:
                 col = 0 
                 row += 1 
         return ''.join(plaintext)
+        
