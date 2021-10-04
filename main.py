@@ -7,7 +7,8 @@ class ui:
             "additive" : additive.AdditiveCrypter(),
             "multiplicative" : multiplicative.MultiplicativeCrypter(),
             "autokey" : autokey.AdditiveCrypter(),
-            "affine" : affine.AffineCrypter()
+            "affine" : affine.AffineCrypter(), 
+            "keyed" : keyed.KeyedTranspositionCrypter()
         }
 
     def main_meniu(self):
@@ -178,7 +179,35 @@ class ui:
         return
 
     def keyed(self):
-        pass
+        os.system('cls||clear')
+        print("---Multiplicative Cypher---")
+        print("""
+        1. Encryption
+        2. Decryption
+        3. Exit
+        """)
+        selector = input("Selection: ") 
+        if selector == "1":
+            os.system('cls||clear')
+            text = input("Input raw text: ")
+            key = input("Input key (number): ")
+            print("Encrypting text...")
+            print("Encypted text:")
+            print(self.cypher["keyed"].encryption(text, key))
+        elif selector == "2":
+            os.system('cls||clear')
+            text = input("Input encrypted text: ")
+            key = input("Input key (number): ")
+            print("Decrypting text...")
+            print("Raw text:")
+            print(self.cypher["keyed"].decryption(text, key))
+        elif selector == "3":
+            return
+        else:
+            self.kayed()
+            return
+        input("Press anything to go back to main meniu...")
+        return
 
 def main(): 
     user_interface = ui()   
