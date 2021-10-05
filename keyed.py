@@ -29,4 +29,3 @@ class KeyedTranspositionCrypter:
                 col = 0 
                 row += 1 
         return ''.join(plaintext)
-        

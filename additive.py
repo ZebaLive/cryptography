@@ -19,18 +19,10 @@ class AdditiveCrypter:
         return encrypted_text
     #decryption function
     def decryption(self, text, key):
-        text = text.upper()
-        key = int(key)
         plain_text = ""
-        for c in text:
-            # find the position in 0-25
-            c_u = ord(c)
-            c_i = ord(c) - ord("A")
-            # perform the negative shift
-            new_i = (c_i - key) % 26
-            # convert to new character
-            new_u = new_i + ord("A")
-            new_c = chr(new_u)
-            # append to plain string
-            plain_text += new_c
+        i = 0
+        while i < len(text):
+            plain_text += __vig( ciphertext[i], key[i % len(key)], True )
+            key += cleartext[-1]
+            i += 1
         return plain_text
